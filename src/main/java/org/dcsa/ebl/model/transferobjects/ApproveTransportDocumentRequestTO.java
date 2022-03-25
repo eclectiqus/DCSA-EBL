@@ -1,13 +1,17 @@
 package org.dcsa.ebl.model.transferobjects;
-import lombok.Data;
+
+import lombok.Builder;
+import lombok.Value;
 import org.dcsa.core.events.model.enums.ShipmentEventTypeCode;
 import org.dcsa.core.validator.EnumSubset;
+
 import javax.validation.constraints.NotNull;
 
-@Data
+@Builder
+@Value
 public class ApproveTransportDocumentRequestTO {
 
-    @NotNull(message = "DocumentStatus is required")
-    @EnumSubset(anyOf = "APPR")
-    private ShipmentEventTypeCode documentStatus;
+  @NotNull(message = "DocumentStatus is required")
+  @EnumSubset(anyOf = "APPR")
+  ShipmentEventTypeCode documentStatus;
 }
